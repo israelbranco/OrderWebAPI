@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OrderWebAPI.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b814a2be08b2c2ed908f60bc3adf9d43a38771ea")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4771269a17fde2eda5edc1ccead3c9045b6307d7")]
 [assembly: System.Reflection.AssemblyProductAttribute("OrderWebAPI.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OrderWebAPI.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

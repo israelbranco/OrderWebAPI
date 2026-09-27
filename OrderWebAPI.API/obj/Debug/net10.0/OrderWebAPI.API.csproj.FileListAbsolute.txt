@@ -32,7 +32,6 @@ D:\GitHub\OrderWebAPI\OrderWebAPI.API\obj\Debug\net10.0\staticwebassets.build.js
 D:\GitHub\OrderWebAPI\OrderWebAPI.API\obj\Debug\net10.0\staticwebassets.development.json
 D:\GitHub\OrderWebAPI\OrderWebAPI.API\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 D:\GitHub\OrderWebAPI\OrderWebAPI.API\obj\Debug\net10.0\swae.build.ex.cache
-D:\GitHub\OrderWebAPI\OrderWebAPI.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 D:\GitHub\OrderWebAPI\OrderWebAPI.API\obj\Debug\net10.0\OrderWeb.390ED3B1.Up2Date
 D:\GitHub\OrderWebAPI\OrderWebAPI.API\obj\Debug\net10.0\OrderWebAPI.API.dll
 D:\GitHub\OrderWebAPI\OrderWebAPI.API\obj\Debug\net10.0\refint\OrderWebAPI.API.dll
@@ -44,3 +43,14 @@ D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Microsoft.EntityFramewor
 D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Npgsql.dll
 D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
