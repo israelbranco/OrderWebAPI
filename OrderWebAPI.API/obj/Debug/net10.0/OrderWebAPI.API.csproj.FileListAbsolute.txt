@@ -39,3 +39,8 @@ D:\GitHub\OrderWebAPI\OrderWebAPI.API\obj\Debug\net10.0\refint\OrderWebAPI.API.d
 D:\GitHub\OrderWebAPI\OrderWebAPI.API\obj\Debug\net10.0\OrderWebAPI.API.pdb
 D:\GitHub\OrderWebAPI\OrderWebAPI.API\obj\Debug\net10.0\OrderWebAPI.API.genruntimeconfig.cache
 D:\GitHub\OrderWebAPI\OrderWebAPI.API\obj\Debug\net10.0\ref\OrderWebAPI.API.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Npgsql.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.API\bin\Debug\net10.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll

@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Itens de Solução/">
+    <File Path="docker-compose.yml" />
+  </Folder>
   <Project Path="OrderWebAPI.API/OrderWebAPI.API.csproj" />
   <Project Path="OrderWebAPI.Application/OrderWebAPI.Application.csproj" />
   <Project Path="OrderWebAPI.Domain/OrderWebAPI.Domain.csproj" />

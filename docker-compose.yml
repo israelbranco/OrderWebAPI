@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: order_postgres_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: orderdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: .
+      dockerfile: OrderWebAPI.API/Dockerfile
+    container_name: order_web_api
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=orderdb;Username=postgres;Password=postgrespassword
+      - Jwt__Key=SuperSecretKeyForJwtAuthenticationMustBeLongEnough123!
+      - Jwt__Issuer=OrderWebAPI
+      - Jwt__Audience=OrderWebAPIUsers
+    ports:
+      - "5000:8080"
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
