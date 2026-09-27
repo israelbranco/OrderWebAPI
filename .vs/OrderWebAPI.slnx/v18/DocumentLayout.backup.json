@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "D:\\GitHub\\OrderWebAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EEFEA08D-A16C-6F4D-0E61-0024BA298FBE}|OrderWebAPI.Application\\OrderWebAPI.Application.csproj|d:\\github\\orderwebapi\\orderwebapi.application\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EEFEA08D-A16C-6F4D-0E61-0024BA298FBE}|OrderWebAPI.Application\\OrderWebAPI.Application.csproj|solutionrelative:orderwebapi.application\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EEFEA08D-A16C-6F4D-0E61-0024BA298FBE}|OrderWebAPI.Application\\OrderWebAPI.Application.csproj|d:\\github\\orderwebapi\\orderwebapi.application\\dtos\\orderdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EEFEA08D-A16C-6F4D-0E61-0024BA298FBE}|OrderWebAPI.Application\\OrderWebAPI.Application.csproj|solutionrelative:orderwebapi.application\\dtos\\orderdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{379423D5-A1CE-C510-A5B0-D87F659A38E1}|OrderWebAPI.Infrastructure\\OrderWebAPI.Infrastructure.csproj|d:\\github\\orderwebapi\\orderwebapi.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{379423D5-A1CE-C510-A5B0-D87F659A38E1}|OrderWebAPI.Infrastructure\\OrderWebAPI.Infrastructure.csproj|solutionrelative:orderwebapi.infrastructure\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -59,6 +67,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Application\\Services\\OrderService.cs",
+              "RelativeDocumentMoniker": "OrderWebAPI.Application\\Services\\OrderService.cs",
+              "ToolTip": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Application\\Services\\OrderService.cs",
+              "RelativeToolTip": "OrderWebAPI.Application\\Services\\OrderService.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAowH0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T04:19:41.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderDtos.cs",
+              "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Application\\DTOs\\OrderDtos.cs",
+              "RelativeDocumentMoniker": "OrderWebAPI.Application\\DTOs\\OrderDtos.cs",
+              "ToolTip": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Application\\DTOs\\OrderDtos.cs",
+              "RelativeToolTip": "OrderWebAPI.Application\\DTOs\\OrderDtos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T04:18:17.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ProductRepository.cs",
               "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Infrastructure\\Repositories\\ProductRepository.cs",
               "RelativeDocumentMoniker": "OrderWebAPI.Infrastructure\\Repositories\\ProductRepository.cs",
@@ -71,7 +105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "OrderRepository.cs",
               "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Infrastructure\\Repositories\\OrderRepository.cs",
               "RelativeDocumentMoniker": "OrderWebAPI.Infrastructure\\Repositories\\OrderRepository.cs",
@@ -79,12 +113,11 @@
               "RelativeToolTip": "OrderWebAPI.Infrastructure\\Repositories\\OrderRepository.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-27T04:13:48.131Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-27T04:13:48.131Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "IProductRepository.cs",
               "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Application\\Interfaces\\IProductRepository.cs",
               "RelativeDocumentMoniker": "OrderWebAPI.Application\\Interfaces\\IProductRepository.cs",
@@ -92,12 +125,11 @@
               "RelativeToolTip": "OrderWebAPI.Application\\Interfaces\\IProductRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-27T03:56:21.009Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-27T03:56:21.009Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "IOrderRepository.cs",
               "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Application\\Interfaces\\IOrderRepository.cs",
               "RelativeDocumentMoniker": "OrderWebAPI.Application\\Interfaces\\IOrderRepository.cs",
@@ -109,7 +141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Infrastructure\\Persistence\\AppDbContext.cs",
               "RelativeDocumentMoniker": "OrderWebAPI.Infrastructure\\Persistence\\AppDbContext.cs",
@@ -121,7 +153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "OrderStatus.cs",
               "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\Enums\\OrderStatus.cs",
               "RelativeDocumentMoniker": "OrderWebAPI.Domain\\Enums\\OrderStatus.cs",
@@ -133,7 +165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Order.cs",
               "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\Entities\\Order.cs",
               "RelativeDocumentMoniker": "OrderWebAPI.Domain\\Entities\\Order.cs",
@@ -145,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "OrderItem.cs",
               "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\Entities\\OrderItem.cs",
               "RelativeDocumentMoniker": "OrderWebAPI.Domain\\Entities\\OrderItem.cs",
@@ -157,7 +189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Product.cs",
               "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\Entities\\Product.cs",
               "RelativeDocumentMoniker": "OrderWebAPI.Domain\\Entities\\Product.cs",
@@ -169,7 +201,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "OrderWebAPI.Domain.csproj",
               "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj",
               "RelativeDocumentMoniker": "OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj",
