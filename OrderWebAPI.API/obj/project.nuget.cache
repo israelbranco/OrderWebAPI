@@ -1,11 +1,30 @@
 {
   "version": 2,
-  "dgSpecHash": "Yf2KRyPdITY=",
+  "dgSpecHash": "sESbFeCR30Y=",
   "success": true,
   "projectFilePath": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.API\\OrderWebAPI.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Israel\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.12\\microsoft.aspnetcore.openapi.10.0.12.nupkg.sha512",
-    "C:\\Users\\Israel\\.nuget\\packages\\microsoft.openapi\\2.12.0\\microsoft.openapi.2.12.0.nupkg.sha512"
+    "C:\\Users\\Israel\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.0\\microsoft.entityframeworkcore.8.0.0.nupkg.sha512",
+    "C:\\Users\\Israel\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.0\\microsoft.entityframeworkcore.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Israel\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.0\\microsoft.entityframeworkcore.analyzers.8.0.0.nupkg.sha512",
+    "C:\\Users\\Israel\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.0\\microsoft.entityframeworkcore.relational.8.0.0.nupkg.sha512",
+    "C:\\Users\\Israel\\.nuget\\packages\\microsoft.openapi\\2.12.0\\microsoft.openapi.2.12.0.nupkg.sha512",
+    "C:\\Users\\Israel\\.nuget\\packages\\npgsql\\8.0.0\\npgsql.8.0.0.nupkg.sha512",
+    "C:\\Users\\Israel\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\8.0.0\\npgsql.entityframeworkcore.postgresql.8.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "O pacote 'Npgsql' 8.0.0 tem uma alta vulnerabilidade de gravidade conhecida, https://github.com/advisories/GHSA-x9vc-6hfv-hg8c",
+      "projectPath": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.API\\OrderWebAPI.API.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.API\\OrderWebAPI.API.csproj",
+      "libraryId": "Npgsql",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }
