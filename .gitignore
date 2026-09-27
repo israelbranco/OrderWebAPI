@@ -1,0 +1,65 @@
+# .gitignore para projeto .NET (Visual Studio) e Docker
+# Ajuste conforme necessário. Mantém apenas arquivos de código e configuração essenciais.
+
+# Build outputs
+bin/
+obj/
+**/bin/
+**/obj/
+
+# Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet
+*.nupkg
+packages/
+.nuget/
+
+# Rider
+.idea/
+*.sln.iml
+*.DotSettings.user
+
+# Logs, temporários
+*.log
+*.tmp
+*.temp
+*.cache
+*.pid
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Publish output
+publish/
+*.publishsettings
+*.publishproj
+
+# ReSharper
+_ReSharper*/
+
+# Docker local overrides and environment files
+docker-compose.override.yml
+.env
+
+# Sistema operacional
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Certificados e chaves
+*.pfx
+*.key
+*.cer
+
+# Arquivos de segredos gerados localmente (ajuste se você versiona algum deles)
+secrets.json
+appsettings.*.Local.json

@@ -10,3 +10,4 @@ D:\GitHub\OrderWebAPI\OrderWebAPI.Domain\obj\Debug\net10.0\OrderWebAPI.Domain.dl
 D:\GitHub\OrderWebAPI\OrderWebAPI.Domain\obj\Debug\net10.0\refint\OrderWebAPI.Domain.dll
 D:\GitHub\OrderWebAPI\OrderWebAPI.Domain\obj\Debug\net10.0\OrderWebAPI.Domain.pdb
 D:\GitHub\OrderWebAPI\OrderWebAPI.Domain\obj\Debug\net10.0\ref\OrderWebAPI.Domain.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.Domain\obj\Debug\net10.0\OrderWeb.47C31126.Up2Date
