@@ -1,3 +1,4 @@
+using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -5,8 +6,7 @@ using OrderWebAPI.Application.Interfaces;
 using OrderWebAPI.Application.Services;
 using OrderWebAPI.Infrastructure.Persistence;
 using OrderWebAPI.Infrastructure.Repositories;
-using System.Text;
-
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,32 +54,54 @@ builder.Services.AddSwaggerGen(c =>
         Description = "API REST de Gestão de Pedidos com autenticação JWT"
     });
 
-    var bearerSchemeType = Type.GetType("Microsoft.OpenApi.Models.OpenApiSecurityScheme, Microsoft.OpenApi");
-    var referenceType = Type.GetType("Microsoft.OpenApi.Models.OpenApiReference, Microsoft.OpenApi");
-    var securityReqType = Type.GetType("Microsoft.OpenApi.Models.OpenApiSecurityRequirement, Microsoft.OpenApi");
-    var refTypeEnum = Type.GetType("Microsoft.OpenApi.Models.ReferenceType, Microsoft.OpenApi");
-    var secSchemeTypeEnum = Type.GetType("Microsoft.OpenApi.Models.SecuritySchemeType, Microsoft.OpenApi");
-    var paramLocationEnum = Type.GetType("Microsoft.OpenApi.Models.ParameterLocation, Microsoft.OpenApi");
+    // Use reflection to access OpenApiSecurityScheme from Microsoft.OpenApi package
+    var openApiAssembly = AppDomain.CurrentDomain.GetAssemblies()
+        .FirstOrDefault(a => a.GetName().Name == "Microsoft.OpenApi");
 
-    if (bearerSchemeType != null && referenceType != null)
+    if (openApiAssembly != null)
     {
-        dynamic scheme = Activator.CreateInstance(bearerSchemeType)!;
-        scheme.Name = "Authorization";
-        scheme.Type = Enum.GetValues(secSchemeTypeEnum!).GetValue(4); // SecuritySchemeType.Http = 4
-        scheme.Scheme = "bearer";
-        scheme.BearerFormat = "JWT";
-        scheme.Description = "Insira o token JWT";
+        var securitySchemeType = openApiAssembly.GetType("Microsoft.OpenApi.Models.OpenApiSecurityScheme");
+        var openApiInfoType = openApiAssembly.GetType("Microsoft.OpenApi.Models.OpenApiInfo");
+        var referenceType = openApiAssembly.GetType("Microsoft.OpenApi.Models.OpenApiReference");
+        var securityReqType = openApiAssembly.GetType("Microsoft.OpenApi.Models.OpenApiSecurityRequirement");
 
-        dynamic reference = Activator.CreateInstance(referenceType)!;
-        reference.Type = Enum.GetValues(refTypeEnum!).GetValue(3); // ReferenceType.SecurityScheme = 3
-        reference.Id = "Bearer";
-        scheme.Reference = reference;
+        if (securitySchemeType != null && referenceType != null && securityReqType != null)
+        {
+            // Create OpenApiSecurityScheme
+            var scheme = Activator.CreateInstance(securitySchemeType)!;
+            securitySchemeType.GetProperty("Name")!.SetValue(scheme, "Authorization");
 
-        c.GetType().GetMethod("AddSecurityDefinition")!.Invoke(c, new object?[] { "Bearer", scheme });
+            var schemeTypeEnum = openApiAssembly.GetType("Microsoft.OpenApi.Models.SecuritySchemeType");
+            securitySchemeType.GetProperty("Type")!.SetValue(scheme, Enum.GetValues(schemeTypeEnum!).GetValue(4)); // Http
 
-        dynamic securityRequirement = Activator.CreateInstance(securityReqType)!;
-        securityRequirement.Add(scheme, Array.Empty<string>());
-        c.GetType().GetMethod("AddSecurityRequirement")!.Invoke(c, new object?[] { securityRequirement });
+            securitySchemeType.GetProperty("Scheme")!.SetValue(scheme, "bearer");
+            securitySchemeType.GetProperty("BearerFormat")!.SetValue(scheme, "JWT");
+            securitySchemeType.GetProperty("Description")!.SetValue(scheme, "Insira o token JWT");
+
+            // Create OpenApiReference
+            var reference = Activator.CreateInstance(referenceType)!;
+            var refTypeEnum = openApiAssembly.GetType("Microsoft.OpenApi.Models.ReferenceType");
+            referenceType.GetProperty("Type")!.SetValue(reference, Enum.GetValues(refTypeEnum!).GetValue(3)); // SecurityScheme
+            referenceType.GetProperty("Id")!.SetValue(reference, "Bearer");
+
+            securitySchemeType.GetProperty("Reference")!.SetValue(scheme, reference);
+
+            // Add security definition
+            var addSecDefMethod = c.GetType().GetMethod("AddSecurityDefinition", 
+                System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance,
+                null, new[] { typeof(string), securitySchemeType }, null);
+            addSecDefMethod?.Invoke(c, new[] { "Bearer", scheme });
+
+            // Create and add security requirement
+            var secReq = Activator.CreateInstance(securityReqType)!;
+            var addMethod = securityReqType.GetMethod("Add");
+            addMethod?.Invoke(secReq, new[] { scheme, Array.Empty<string>() });
+
+            var addSecReqMethod = c.GetType().GetMethod("AddSecurityRequirement",
+                System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance,
+                null, new[] { securityReqType }, null);
+            addSecReqMethod?.Invoke(c, new[] { secReq });
+        }
     }
 });
 
