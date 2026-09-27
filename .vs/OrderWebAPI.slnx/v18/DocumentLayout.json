@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\GitHub\\OrderWebAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F625C17F-B31A-850D-72CC-21163333A584}|OrderWebAPI.API\\OrderWebAPI.API.csproj|d:\\github\\orderwebapi\\orderwebapi.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F625C17F-B31A-850D-72CC-21163333A584}|OrderWebAPI.API\\OrderWebAPI.API.csproj|solutionrelative:orderwebapi.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{60CA0214-88C6-8651-7B8B-6C0F6C5892CB}|Itens de Solu\u00E7\u00E3o{60CA0214-88C6-8651-7B8B-6C0F6C5892CB}|D:\\GitHub\\OrderWebAPI\\docker-compose.yml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}",
       "RelativeMoniker": "D:0:0:{60CA0214-88C6-8651-7B8B-6C0F6C5892CB}|Itens de Solu\u00E7\u00E3o{60CA0214-88C6-8651-7B8B-6C0F6C5892CB}|solutionrelative:docker-compose.yml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F625C17F-B31A-850D-72CC-21163333A584}|OrderWebAPI.API\\OrderWebAPI.API.csproj|d:\\github\\orderwebapi\\orderwebapi.api\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F625C17F-B31A-850D-72CC-21163333A584}|OrderWebAPI.API\\OrderWebAPI.API.csproj|solutionrelative:orderwebapi.api\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F625C17F-B31A-850D-72CC-21163333A584}|OrderWebAPI.API\\OrderWebAPI.API.csproj|d:\\github\\orderwebapi\\orderwebapi.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F625C17F-B31A-850D-72CC-21163333A584}|OrderWebAPI.API\\OrderWebAPI.API.csproj|solutionrelative:orderwebapi.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EEFEA08D-A16C-6F4D-0E61-0024BA298FBE}|OrderWebAPI.Application\\OrderWebAPI.Application.csproj|d:\\github\\orderwebapi\\orderwebapi.application\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -74,11 +74,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "docker-compose.yml",
               "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\docker-compose.yml",
               "RelativeDocumentMoniker": "docker-compose.yml",
@@ -91,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.API\\Program.cs",
               "RelativeDocumentMoniker": "OrderWebAPI.API\\Program.cs",
@@ -104,7 +104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "OrdersController.cs",
               "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.API\\Controllers\\OrdersController.cs",
               "RelativeDocumentMoniker": "OrderWebAPI.API\\Controllers\\OrdersController.cs",
@@ -116,15 +116,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "OrderWebAPI.API\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.API\\Controllers\\AuthController.cs",
               "RelativeToolTip": "OrderWebAPI.API\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAC0AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAYwEsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-27T04:22:17.025Z"
+              "WhenOpened": "2026-09-27T04:22:17.025Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
