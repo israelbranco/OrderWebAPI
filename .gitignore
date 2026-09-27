@@ -63,3 +63,14 @@ Desktop.ini
 # Arquivos de segredos gerados localmente (ajuste se você versiona algum deles)
 secrets.json
 appsettings.*.Local.json
+
+# MSBuild / SDK generated files
+**/ref/
+**/refint/
+**/*.sourcelink.json
+**/*.AssemblyInfoInputs.cache
+**/*.csproj.AssemblyReference.cache
+**/*.sln.ide
+**/*.cache
+**/*.log
+*.db
