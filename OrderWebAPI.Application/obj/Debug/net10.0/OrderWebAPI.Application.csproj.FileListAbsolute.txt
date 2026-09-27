@@ -1,0 +1,16 @@
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\bin\Debug\net10.0\OrderWebAPI.Application.deps.json
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\bin\Debug\net10.0\OrderWebAPI.Application.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\bin\Debug\net10.0\OrderWebAPI.Application.pdb
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\bin\Debug\net10.0\OrderWebAPI.Domain.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\bin\Debug\net10.0\OrderWebAPI.Domain.pdb
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\obj\Debug\net10.0\OrderWebAPI.Application.csproj.AssemblyReference.cache
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\obj\Debug\net10.0\OrderWebAPI.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\obj\Debug\net10.0\OrderWebAPI.Application.AssemblyInfoInputs.cache
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\obj\Debug\net10.0\OrderWebAPI.Application.AssemblyInfo.cs
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\obj\Debug\net10.0\OrderWebAPI.Application.csproj.CoreCompileInputs.cache
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\obj\Debug\net10.0\OrderWebAPI.Application.sourcelink.json
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\obj\Debug\net10.0\OrderWeb.D7EFFA47.Up2Date
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\obj\Debug\net10.0\OrderWebAPI.Application.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\obj\Debug\net10.0\refint\OrderWebAPI.Application.dll
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\obj\Debug\net10.0\OrderWebAPI.Application.pdb
+D:\GitHub\OrderWebAPI\OrderWebAPI.Application\obj\Debug\net10.0\ref\OrderWebAPI.Application.dll

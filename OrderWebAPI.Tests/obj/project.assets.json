@@ -393,6 +393,29 @@
         "build": {
           "build/net8.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "OrderWebAPI.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "OrderWebAPI.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/OrderWebAPI.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OrderWebAPI.Application.dll": {}
+        }
+      },
+      "OrderWebAPI.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/OrderWebAPI.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/OrderWebAPI.Domain.dll": {}
+        }
       }
     }
   },
@@ -903,11 +926,23 @@
         "xunit.runner.visualstudio.3.1.4.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "OrderWebAPI.Application/1.0.0": {
+      "type": "project",
+      "path": "../OrderWebAPI.Application/OrderWebAPI.Application.csproj",
+      "msbuildProject": "../OrderWebAPI.Application/OrderWebAPI.Application.csproj"
+    },
+    "OrderWebAPI.Domain/1.0.0": {
+      "type": "project",
+      "path": "../OrderWebAPI.Domain/OrderWebAPI.Domain.csproj",
+      "msbuildProject": "../OrderWebAPI.Domain/OrderWebAPI.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
       "Microsoft.NET.Test.Sdk >= 17.14.1",
+      "OrderWebAPI.Application >= 1.0.0",
+      "OrderWebAPI.Domain >= 1.0.0",
       "coverlet.collector >= 6.0.4",
       "xunit >= 2.9.3",
       "xunit.runner.visualstudio >= 3.1.4"
@@ -945,7 +980,14 @@
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Application\\OrderWebAPI.Application.csproj": {
+              "projectPath": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Application\\OrderWebAPI.Application.csproj"
+            },
+            "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj": {
+              "projectPath": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GitHub\\OrderWebAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A02008C6-BC04-BB1E-FFF9-9C27240D9806}|OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj|d:\\github\\orderwebapi\\orderwebapi.domain\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A02008C6-BC04-BB1E-FFF9-9C27240D9806}|OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj|solutionrelative:orderwebapi.domain\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A02008C6-BC04-BB1E-FFF9-9C27240D9806}|OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj|d:\\github\\orderwebapi\\orderwebapi.domain\\enums\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A02008C6-BC04-BB1E-FFF9-9C27240D9806}|OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj|solutionrelative:orderwebapi.domain\\enums\\orderstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A02008C6-BC04-BB1E-FFF9-9C27240D9806}|OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj|d:\\github\\orderwebapi\\orderwebapi.domain\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A02008C6-BC04-BB1E-FFF9-9C27240D9806}|OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj|solutionrelative:orderwebapi.domain\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A02008C6-BC04-BB1E-FFF9-9C27240D9806}|OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj|d:\\github\\orderwebapi\\orderwebapi.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A02008C6-BC04-BB1E-FFF9-9C27240D9806}|OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj|solutionrelative:orderwebapi.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A02008C6-BC04-BB1E-FFF9-9C27240D9806}|OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj|d:\\github\\orderwebapi\\orderwebapi.domain\\orderwebapi.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A02008C6-BC04-BB1E-FFF9-9C27240D9806}|OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj|solutionrelative:orderwebapi.domain\\orderwebapi.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderStatus.cs",
+              "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\Enums\\OrderStatus.cs",
+              "RelativeDocumentMoniker": "OrderWebAPI.Domain\\Enums\\OrderStatus.cs",
+              "ToolTip": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\Enums\\OrderStatus.cs",
+              "RelativeToolTip": "OrderWebAPI.Domain\\Enums\\OrderStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T03:24:03.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\Entities\\Order.cs",
+              "RelativeDocumentMoniker": "OrderWebAPI.Domain\\Entities\\Order.cs",
+              "ToolTip": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\Entities\\Order.cs",
+              "RelativeToolTip": "OrderWebAPI.Domain\\Entities\\Order.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T03:23:09.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\Entities\\OrderItem.cs",
+              "RelativeDocumentMoniker": "OrderWebAPI.Domain\\Entities\\OrderItem.cs",
+              "ToolTip": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\Entities\\OrderItem.cs",
+              "RelativeToolTip": "OrderWebAPI.Domain\\Entities\\OrderItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T03:20:45.269Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "OrderWebAPI.Domain\\Entities\\Product.cs",
+              "ToolTip": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\Entities\\Product.cs",
+              "RelativeToolTip": "OrderWebAPI.Domain\\Entities\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-27T03:12:45.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrderWebAPI.Domain",
+              "DocumentMoniker": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj",
+              "RelativeDocumentMoniker": "OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj",
+              "ToolTip": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj",
+              "RelativeToolTip": "OrderWebAPI.Domain\\OrderWebAPI.Domain.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-09-27T03:10:19.444Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
