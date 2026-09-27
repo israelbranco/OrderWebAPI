@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ejA+Wo3FS9Q=",
+  "success": true,
+  "projectFilePath": "D:\\GitHub\\OrderWebAPI\\OrderWebAPI.API\\OrderWebAPI.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Israel\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.12\\microsoft.aspnetcore.openapi.10.0.12.nupkg.sha512",
+    "C:\\Users\\Israel\\.nuget\\packages\\microsoft.openapi\\2.12.0\\microsoft.openapi.2.12.0.nupkg.sha512"
+  ],
+  "logs": []
+}

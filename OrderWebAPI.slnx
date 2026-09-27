@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="OrderWebAPI.API/OrderWebAPI.API.csproj" />
+  <Project Path="OrderWebAPI.Application/OrderWebAPI.Application.csproj" />
+  <Project Path="OrderWebAPI.Domain/OrderWebAPI.Domain.csproj" />
+  <Project Path="OrderWebAPI.Infrastructure/OrderWebAPI.Infrastructure.csproj" />
+  <Project Path="OrderWebAPI.Tests/OrderWebAPI.Tests.csproj" />
+</Solution>
