@@ -78,11 +78,15 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-// Aplicar Migrations automaticamente na inicialização
+// Aplicar Migrations automaticamente na inicialização e popular dados de teste
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     dbContext.Database.Migrate();
+
+    // Seed inicial (idempotente) — insere produtos, pedidos e itens conforme necessário
+    // Usa GetAwaiter().GetResult() para não precisar tornar o método top-level async aqui
+    OrderWebAPI.Infrastructure.Persistence.DbSeeder.SeedAsync(dbContext).GetAwaiter().GetResult();
 }
 
 if (app.Environment.IsDevelopment())
