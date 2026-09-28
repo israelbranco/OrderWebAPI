@@ -1,12 +1,13 @@
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
 using OrderWebAPI.Application.Interfaces;
 using OrderWebAPI.Application.Services;
 using OrderWebAPI.Infrastructure.Persistence;
 using OrderWebAPI.Infrastructure.Repositories;
-using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Text;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,54 +46,34 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
+builder.Services.AddSwaggerGen(options =>
 {
-    c.SwaggerDoc("v1", new()
+    options.SwaggerDoc("v1", new OpenApiInfo
     {
         Title = "OrderWebAPI",
         Version = "v1",
-        Description = "API REST de Gestão de Pedidos com autenticação JWT"
+        Description = "API REST com autenticação JWT"
     });
 
-    // Configure Bearer JWT security using dynamic to avoid direct Microsoft.OpenApi reference
-    try
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        // Load Microsoft.OpenApi assembly and get security types
-        var openApiAssembly = System.Reflection.Assembly.Load(new System.Reflection.AssemblyName("Microsoft.OpenApi"));
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        Description = "Insira o token JWT: {token} (Não escreva `Bearer` e não coloque `aspas` no token."
+    });
 
-        dynamic securityScheme = System.Activator.CreateInstance(
-            openApiAssembly.GetType("Microsoft.OpenApi.Models.OpenApiSecurityScheme")
-        )!;
-
-        securityScheme.Type = 4; // SecuritySchemeType.Http
-        securityScheme.Scheme = "bearer";
-        securityScheme.Name = "Authorization";
-        securityScheme.BearerFormat = "JWT";
-        securityScheme.Description = "Insira o token JWT";
-
-        // Create reference
-        dynamic reference = System.Activator.CreateInstance(
-            openApiAssembly.GetType("Microsoft.OpenApi.Models.OpenApiReference")
-        )!;
-        reference.Type = 3; // ReferenceType.SecurityScheme
-        reference.Id = "Bearer";
-        securityScheme.Reference = reference;
-
-        // Add security definition
-        c.GetType().GetMethod("AddSecurityDefinition")?.Invoke(c, new object[] { "Bearer", securityScheme });
-
-        // Add security requirement
-        dynamic securityRequirement = System.Activator.CreateInstance(
-            openApiAssembly.GetType("Microsoft.OpenApi.Models.OpenApiSecurityRequirement")
-        )!;
-        securityRequirement.Add(securityScheme, new string[] { });
-
-        c.GetType().GetMethod("AddSecurityRequirement")?.Invoke(c, new object[] { securityRequirement });
-    }
-    catch (Exception ex)
+    // CORREÇÃO: Usa o delegate 'document =>' e uma coleção List<string> (através do atalho [])
+    options.AddSecurityRequirement(document => new OpenApiSecurityRequirement
     {
-        System.Diagnostics.Debug.WriteLine($"Erro configurando segurança: {ex.Message}");
-    }
+        {
+            new OpenApiSecuritySchemeReference("Bearer", document),
+            [] // <-- Uma lista vazia compatível com System.Collections.Generic.List<string>
+        }
+    });
+
 });
 
 var app = builder.Build();
