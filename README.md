@@ -29,14 +29,12 @@ O projeto segue a **Clean Architecture** dividida em camadas isoladas com respon
 
 ```text
 OrderWebAPI/
-├── src/
-│   ├── OrderWebAPI.Domain/        # Entidades ricas (Order, OrderItem, Product), Enums, Exceções de Domínio, Interfaces
-│   ├── OrderWebAPI.Application/   # DTOs, Use Cases (OrderAppService, ProductAppService), Interfaces de Serviços
-│   ├── OrderWebAPI.Infrastructure/# DbContext, Repositórios, Migrations, Inicializador/Seed, Serviços JWT
-│   └── OrderWebAPI.API/           # Controllers, Middleware de Exceção Global, Swagger & Configurações
-├── tests/
-│   └── OrderWebAPI.Tests/         # Testes de Unidade e Aplicação (xUnit + Moq)
-├── docker-compose.yml                 # Orquestração do PostgreSQL 17 + Web API
+│   ├── OrderWebAPI.Domain/         # Entidades ricas (Order, OrderItem, Product), Enums, Exceções de Domínio, Interfaces
+│   ├── OrderWebAPI.Application/    # DTOs, Use Cases (OrderAppService, ProductAppService), Interfaces de Serviços
+│   ├── OrderWebAPI.Infrastructure/ # DbContext, Repositórios, Migrations, Inicializador/Seed, Serviços JWT
+│   └── OrderWebAPI.API/            # Controllers, Middleware de Exceção Global, Swagger & Configurações
+│   └── OrderWebAPI.Tests/          # Testes de Unidade e Aplicação (xUnit + Moq)
+├── docker-compose.yml              # Orquestração do PostgreSQL 17 + Web API
 └── README.md
 ```
 
