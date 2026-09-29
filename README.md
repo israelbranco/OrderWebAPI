@@ -29,12 +29,12 @@ O projeto segue a **Clean Architecture** dividida em camadas isoladas com respon
 
 ```text
 OrderWebAPI/
-│   ├── OrderWebAPI.Domain/         # Entidades ricas (Order, OrderItem, Product), Enums, Exceções de Domínio, Interfaces
-│   ├── OrderWebAPI.Application/    # DTOs, Use Cases (OrderAppService, ProductAppService), Interfaces de Serviços
-│   ├── OrderWebAPI.Infrastructure/ # DbContext, Repositórios, Migrations, Inicializador/Seed, Serviços JWT
-│   └── OrderWebAPI.API/            # Controllers, Middleware de Exceção Global, Swagger & Configurações
+│   ├── OrderWebAPI.Domain/         # Entidades ricas (Order, OrderItem, Product), Enums
+│   ├── OrderWebAPI.Application/    # DTOs, Use Cases (OrderService), Interfaces de Serviços
+│   ├── OrderWebAPI.Infrastructure/ # Repositórios, Migrations, Inicializador/Seed
+│   └── OrderWebAPI.API/            # Controllers, Autenticação, Swagger & Configurações
 │   └── OrderWebAPI.Tests/          # Testes de Unidade e Aplicação (xUnit + Moq)
-├── docker-compose.yml              # Orquestração do PostgreSQL 17 + Web API
+├── docker-compose.yml              # Orquestração do PostgreSQL 15 + Web API
 ├── .gitignore
 └── README.md
 ```
@@ -52,7 +52,7 @@ Certifique-se de que o **Docker Desktop** esteja rodando na sua máquina.
    docker compose up --build -d
    ```
 2. A API aplicará as migrations e o seed de produtos automaticamente e estará disponível em:
-   - **Swagger UI:**
+   - **Swagger UI**
 
 ---
 
