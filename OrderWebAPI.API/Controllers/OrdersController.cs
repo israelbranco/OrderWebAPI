@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OrderWebAPI.Application.DTOs;
 using OrderWebAPI.Application.Services;
+using OrderWebAPI.Application.Exceptions;
 
 namespace OrderWebAPI.API.Controllers;
 
@@ -24,6 +25,10 @@ public class OrdersController : ControllerBase
         {
             var result = await _orderService.CreateOrderAsync(dto);
             return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
+        }
+        catch (ValidationException vex)
+        {
+            return BadRequest(new { errors = vex.Errors });
         }
         catch (Exception ex)
         {

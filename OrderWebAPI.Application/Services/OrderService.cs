@@ -2,6 +2,7 @@
 using OrderWebAPI.Application.Interfaces;
 using OrderWebAPI.Domain.Entities;
 using OrderWebAPI.Domain.Enums;
+using System.Text.RegularExpressions;
 
 namespace OrderWebAPI.Application.Services;
 
@@ -18,27 +19,60 @@ public class OrderService
 
     public async Task<OrderResponseDto> CreateOrderAsync(CreateOrderDto dto)
     {
+        // Validação de Currency
+        if (string.IsNullOrWhiteSpace(dto.Currency) || !Regex.IsMatch(dto.Currency, @"^[A-Z]{3}$"))
+            throw new Application.Exceptions.ValidationException(new[] { new Application.Exceptions.ValidationError("Currency", "A moeda (currency) deve ser um código válido com 3 letras maiúsculas (ex: BRL, USD, EUR).") });
+
         if (dto.Items == null || !dto.Items.Any())
-            throw new ArgumentException("O pedido deve conter ao menos um item.");
+            throw new Application.Exceptions.ValidationException(new[] { new Application.Exceptions.ValidationError("Items", "O pedido deve conter ao menos um item.") });
+
+        // validações básicas por item
+        var perItemErrors = new List<Application.Exceptions.ValidationError>();
+        foreach (var it in dto.Items)
+        {
+            if (it.Quantity <= 0)
+                perItemErrors.Add(new Application.Exceptions.ValidationError($"Items[{it.ProductId}]", "A quantidade do item deve ser maior que zero.", "InvalidQuantity", new { ProductId = it.ProductId, Quantity = it.Quantity }));
+        }
+
+        if (perItemErrors.Any())
+            throw new Application.Exceptions.ValidationException(perItemErrors);
 
         var productIds = dto.Items.Select(i => i.ProductId).Distinct();
         var products = await _productRepository.GetByIdsAsync(productIds);
 
-        var orderItems = new List<OrderItem>();
+        // Agregar quantidades por produto para validar estoque corretamente
+        var aggregated = dto.Items
+            .GroupBy(i => i.ProductId)
+            .ToDictionary(g => g.Key, g => g.Sum(x => x.Quantity));
 
-        foreach (var itemDto in dto.Items)
+        // Validar existência e disponibilidade considerando a soma das quantidades
+        var stockErrors = new List<Application.Exceptions.ValidationError>();
+        var notFoundErrors = new List<Application.Exceptions.ValidationError>();
+
+        foreach (var kvp in aggregated)
         {
-            if (itemDto.Quantity <= 0)
-                throw new ArgumentException("A quantidade do item deve ser maior que zero.");
+            var product = products.FirstOrDefault(p => p.Id == kvp.Key);
+            if (product == null)
+            {
+                notFoundErrors.Add(new Application.Exceptions.ValidationError($"Items[{kvp.Key}]", "Produto não encontrado.", "ProductNotFound", new { ProductId = kvp.Key }));
+                continue;
+            }
 
-            var product = products.FirstOrDefault(p => p.Id == itemDto.ProductId)
-                          ?? throw new InvalidOperationException($"Produto {itemDto.ProductId} não encontrado.");
-
-            if (product.AvailableQuantity < itemDto.Quantity)
-                throw new InvalidOperationException($"Estoque insuficiente para o produto {product.Name}. Disponível: {product.AvailableQuantity}");
-
-            orderItems.Add(new OrderItem(product.Id, product.UnitPrice, itemDto.Quantity));
+            if (product.AvailableQuantity < kvp.Value)
+            {
+                stockErrors.Add(new Application.Exceptions.ValidationError($"Items[{kvp.Key}]", "Estoque insuficiente.", "InsufficientStock", new { ProductId = kvp.Key, Available = product.AvailableQuantity, Requested = kvp.Value }));
+            }
         }
+
+        if (notFoundErrors.Any() || stockErrors.Any())
+            throw new Application.Exceptions.ValidationException(notFoundErrors.Concat(stockErrors));
+
+        var orderItems = aggregated.Select(kvp =>
+            {
+                var product = products.First(p => p.Id == kvp.Key);
+                return new OrderItem(product.Id, product.UnitPrice, kvp.Value);
+            })
+            .ToList();
 
         var order = new Order(dto.CustomerId, dto.Currency, orderItems);
         await _orderRepository.AddAsync(order);
@@ -48,54 +82,124 @@ public class OrderService
 
     public async Task ConfirmOrderAsync(Guid id)
     {
-        var order = await _orderRepository.GetByIdAsync(id)
-                    ?? throw new KeyNotFoundException("Pedido não encontrado.");
+        const int maxRetries = 3;
+        var attempt = 0;
 
-        // Idempotência: Se já estiver confirmado, apenas retorna com sucesso
-        if (order.Status == OrderStatus.Confirmed)
-            return;
-
-        if (order.Status != OrderStatus.Placed)
-            throw new InvalidOperationException("Apenas pedidos com status 'Placed' podem ser confirmados.");
-
-        // Baixar estoque dos produtos
-        var productIds = order.Items.Select(i => i.ProductId);
-        var products = await _productRepository.GetByIdsAsync(productIds);
-
-        foreach (var item in order.Items)
+        while (true)
         {
-            var product = products.First(p => p.Id == item.ProductId);
-            product.DecreaseStock(item.Quantity);
-        }
+            attempt++;
 
-        order.Confirm();
-        await _orderRepository.UpdateAsync(order);
+            var order = await _orderRepository.GetByIdAsync(id)
+                        ?? throw new KeyNotFoundException("Pedido não encontrado.");
+
+            // Idempotência: Se já estiver confirmado, apenas retorna com sucesso
+            if (order.Status == OrderStatus.Confirmed)
+                return;
+
+            if (order.Status != OrderStatus.Placed)
+                throw new InvalidOperationException("Apenas pedidos com status 'Placed' podem ser confirmados.");
+
+            // Baixar estoque dos produtos
+            var productIds = order.Items.Select(i => i.ProductId);
+            var products = await _productRepository.GetByIdsAsync(productIds);
+
+            // Verificar disponibilidade antes de aplicar alterações
+            var insufficient = new List<Application.Exceptions.ValidationError>();
+            foreach (var item in order.Items)
+            {
+                var product = products.FirstOrDefault(p => p.Id == item.ProductId)
+                              ?? throw new InvalidOperationException($"Produto {item.ProductId} não encontrado.");
+
+                if (product.AvailableQuantity < item.Quantity)
+                    insufficient.Add(new Application.Exceptions.ValidationError($"Items[{item.ProductId}]", "Estoque insuficiente no momento da confirmação.", "InsufficientStock", new { ProductId = item.ProductId, Available = product.AvailableQuantity, Requested = item.Quantity }));
+            }
+
+            if (insufficient.Any())
+                throw new Application.Exceptions.ValidationException(insufficient);
+
+            // Aplicar alterações na memória
+            foreach (var item in order.Items)
+            {
+                var product = products.First(p => p.Id == item.ProductId);
+                product.DecreaseStock(item.Quantity);
+            }
+
+            order.Confirm();
+
+            try
+            {
+                await _orderRepository.UpdateAsync(order);
+                return; // sucesso
+            }
+            catch (Exception ex)
+            {
+                // Mapear exceção de concorrência para um tipo de domínio caso venha do EF Core
+                if (ex.GetType().Name == "DbUpdateConcurrencyException")
+                {
+                    if (attempt >= maxRetries)
+                        throw new Application.Exceptions.ConcurrencyException("Falha ao confirmar pedido devido a conflito de concorrência. Tente novamente.");
+
+                    await Task.Delay(100 * attempt);
+                    continue;
+                }
+
+                throw; // rethrow para outros tipos de erro
+            }
+        }
     }
 
     public async Task CancelOrderAsync(Guid id)
     {
-        var order = await _orderRepository.GetByIdAsync(id)
-                    ?? throw new KeyNotFoundException("Pedido não encontrado.");
+        const int maxRetries = 3;
+        var attempt = 0;
 
-        // Idempotência: Se já estiver cancelado, retorna com sucesso
-        if (order.Status == OrderStatus.Canceled)
-            return;
-
-        // Se o pedido estava Confirmado, precisamos devolver o estoque
-        if (order.Status == OrderStatus.Confirmed)
+        while (true)
         {
-            var productIds = order.Items.Select(i => i.ProductId);
-            var products = await _productRepository.GetByIdsAsync(productIds);
+            attempt++;
 
-            foreach (var item in order.Items)
+            var order = await _orderRepository.GetByIdAsync(id)
+                        ?? throw new KeyNotFoundException("Pedido não encontrado.");
+
+            // Idempotência: Se já estiver cancelado, retorna com sucesso
+            if (order.Status == OrderStatus.Canceled)
+                return;
+
+            // Se o pedido estava Confirmado, precisamos devolver o estoque
+            if (order.Status == OrderStatus.Confirmed)
             {
-                var product = products.First(p => p.Id == item.ProductId);
-                product.IncreaseStock(item.Quantity);
+                var productIds = order.Items.Select(i => i.ProductId);
+                var products = await _productRepository.GetByIdsAsync(productIds);
+
+                // Aplicar devolução de estoque
+                foreach (var item in order.Items)
+                {
+                    var product = products.FirstOrDefault(p => p.Id == item.ProductId)
+                                  ?? throw new InvalidOperationException($"Produto {item.ProductId} não encontrado.");
+                    product.IncreaseStock(item.Quantity);
+                }
+            }
+
+            order.Cancel();
+
+            try
+            {
+                await _orderRepository.UpdateAsync(order);
+                return;
+            }
+            catch (Exception ex)
+            {
+                if (ex.GetType().Name == "DbUpdateConcurrencyException")
+                {
+                    if (attempt >= maxRetries)
+                        throw new Application.Exceptions.ConcurrencyException("Falha ao cancelar pedido devido a conflito de concorrência. Tente novamente.");
+
+                    await Task.Delay(100 * attempt);
+                    continue;
+                }
+
+                throw;
             }
         }
-
-        order.Cancel();
-        await _orderRepository.UpdateAsync(order);
     }
 
     public async Task<OrderResponseDto?> GetByIdAsync(Guid id)
