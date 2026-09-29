@@ -35,6 +35,7 @@ OrderWebAPI/
 │   └── OrderWebAPI.API/            # Controllers, Middleware de Exceção Global, Swagger & Configurações
 │   └── OrderWebAPI.Tests/          # Testes de Unidade e Aplicação (xUnit + Moq)
 ├── docker-compose.yml              # Orquestração do PostgreSQL 17 + Web API
+├── .gitignore
 └── README.md
 ```
 
